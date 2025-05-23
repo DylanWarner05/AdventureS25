@@ -1,4 +1,5 @@
-﻿{
+﻿
+{
   "Locations": [
     {
       "Name": "Entrance",
@@ -9,18 +10,18 @@
         "west" : "Pool"
       }
     },
-    
+
     {
       "Name": "Storage",
-      "Description": "You are in a small storage room. There is an exit to the west.",
+      "Description": "You are in a small storage room. Unfortunately, you notice a wire stretching across the doorway by your feet only after you broke it by stepping through.",
       "Connections": {
         "west" : "Entrance"
-      }    
+      }
     },
 
     {
       "Name": "Throne Room",
-      "Description": "There is a big ass throne here. An opening lies to the south.",
+      "Description": "There is a big ass throne here decorated with gilded gold. You can't stop yourself from gravitating towards it, placing your own ass inside it.",
       "Connections": {
         "south" : "Entrance"
       }
@@ -28,7 +29,7 @@
 
     {
       "Name": "Pool",
-      "Description": "It's very very wet here.  The entrance room is to the east.",
+      "Description": "It's very very wet here, as is expected of a room containing a pool. Tile flooring spans across the outer edge, tempting you to run for some reason, and you can't help but indulge.",
       "Connections": {
         "east" : "Entrance"
       }
@@ -36,10 +37,88 @@
 
     {
       "Name": "Cave",
-      "Description": "It's a dark cave.",
+      "Description": "This is the Main Cave, with rough rocks and stalagmites spread out all over. You can go east or west to explore other sections of the cave, or head south through an oddly normal looking door.",
       "Connections": {
+        "east": "East Cave",
+        "south": "Lake Cave",
+        "west" : "West Cave"
+      }
+    },
+    {
+      "Name": "East Cave",
+      "Description": "On this side of the cave, there is a tall wall before you that leads to an obvious rock platform overhead. There seem to be some handholds underneath the muddy surface of the rock.",
+      "Connections": {
+        "west" : "Cave"
+      }
+    },
+    {
+      "Name": "East Cave Wall",
+      "Description": "You arduously climb atop the mud-covered wall, finding a damp outcropping with more mud on the floor.",
+      "Connections": {
+      }
+    },
+    {
+      "Name": "Lake Cave",
+      "Description": "This section of the cave has extremely high ceilings, painted over with designs of fluffy white clouds on a blue background. A large body of water stretches out \n before you, encompassing nearly the entire room except for a small patch of sand in the middle, a small beach house sitting on top. A vine-covered walkway is open through the wall to your west. Go north to return to the Main Cave.",
+      "Connections": {
+        "north" : "Cave",
+        "west" : "Amazon Rainforest Cave"
+      }
+    },
+    {
+      "Name": "Lake",
+      "Description": "The inky, dark blue water surrounds you as you enter the lake. Continue south to reach the Lake House.",
+      "Connections": {
+        "north" : "Lake Cave",
+        "south" : "Lake House"
+      }
+    },
+    {
+      "Name": "Lake House",
+      "Description": "The small beach house stands before you, a lock with a wooden keyhole attached to the front door.",
+      "Connections": {
+        "north" : "Lake"
+      }
+    },
+    {
+      "Name": "Living Room",
+      "Description": "Furniture collects dust inside the house, the wallpaper peeling and windows boarded up. It is clear that whoever lived here left a long time ago. Doors connect to rooms to your east and west.",
+      "Connections": {
+        "east" : "Laboratory",
+        "west" : "Bedroom"
+      }
+    },
+    {
+      "Name": "Laboratory",
+      "Description": "You enter a pristine white room full of research equipment. There is a stand at the back of the room that holds two vials: one green and one red. To attempt \n drinking one, type 'Drink redpotion/greenpotion.' Go west to return to the Living Room.",
+      "Connections": {
+        "west" : "Living Room"
+      }
+    },
+    {
+      "Name": "Bedroom",
+      "Description": "There is a closet overflowing with dirty clothes, a messy desk with blueprints on top, and an unmade bed. It seems uninteresting at a glance, but perhaps there's something hiding in one of these locations?",
+      "Connections": {
+        "east" : "Living Room"
+      }
+    },
+    {
+      "Name": "Amazon Rainforest Cave",
+      "Description": "You pass through a humid tunnel with vines hanging from the walls. There are endless Brazil Nut trees surrounding you, as if the creator of this place wished to \n recreate the forest but only knew of one type of tree within it. Go east to return to the Lake Cave.",
+      "Connections": {
+        "east" : "Lake Cave"
+      }
+    },
+
+    {
+      "Name": "West Cave",
+      "Description": "There is a massive wooden door with a diamond lock. You see bright daylight peering out from underneath. This must be the path to the surface!",
+      "Connections": {
+        "east" : "Cave"
       }
     }
   ],
+
+
   "StartLocation": "Entrance"
 }

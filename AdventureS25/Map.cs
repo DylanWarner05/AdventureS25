@@ -71,6 +71,7 @@ public static class Map
         if (item != null && location != null)
         {
             location.AddItem(item);
+            
         }
     }
     
@@ -117,6 +118,7 @@ public static class Map
         // create the connection
         start.AddConnection(direction, end);
     }
+    
 
     public static void RemoveConnection(string startLocationName, string direction)
     {
