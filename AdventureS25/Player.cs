@@ -45,7 +45,7 @@ public static class Player
         }
         else if (!item.IsTakeable)
         {
-            Console.WriteLine("The " + command.Noun + " can't be taked.");
+            Console.WriteLine("The " + command.Noun + " can't be taken.");
         }
 
         else if (command.Noun == "axe")
@@ -60,22 +60,32 @@ public static class Player
                 Inventory.Add(item);
             }
         }
+        
+        else if (command.Noun == "woodenkey")
+        {
+            Console.WriteLine("You take the wooden key.");
+            Inventory.Add(item);
+        }
+        
         else if (command.Noun == "diamondkey")
         {
             if (Conditions.IsTrue(ConditionTypes.IsStrengthened) == false)
             {
                 Console.WriteLine("You can't take the diamond key, you are not strong enough.");
+                RemoveItemFromInventory("diamondkey");
             }
 
-            Inventory.Add(item);
-            Console.WriteLine("You take the diamondkey, it now feeling as light as any other key in your hand.");
+            else if (Conditions.IsTrue(ConditionTypes.IsStrengthened))
+            {
+                Inventory.Add(item);
+                Console.WriteLine("You take the diamondkey, it now feeling as light as any other key in your hand.");
+            }
         }
         else
         {
             Inventory.Add(item);
             CurrentLocation.RemoveItem(item);
             item.Pickup();
-            Console.WriteLine("You take the " + command.Noun + ".");
         }
     }
 
@@ -304,7 +314,7 @@ public static class Player
         {
             Console.WriteLine("There is no wall here. Try somewhere else.");
         }
-        else if (command.Noun == "up" || command.Noun == "wall")
+        else if (command.Noun is "up" or "wall")
         {
             Console.WriteLine("** climbing up wall");
             MoveToLocation("East Cave Wall");
@@ -360,6 +370,7 @@ public static class Player
             else
             {
                 Console.WriteLine("You have built a raft out of wood.");
+                RemoveItemFromInventory("wood");
                 AddItemToInventory("raft");
             }
         }
@@ -372,13 +383,18 @@ public static class Player
 
     public static void Search(Command command)
     {
-        if (command.Noun == "closet")
+        if (CurrentLocation.Name != "Bedroom")
+        {
+            Console.WriteLine("There is nothing to search here.");
+        }
+        
+        else if (command.Noun == "closet")
         {
             Console.WriteLine("You look through all the dirty clothes and get some sticky stuff on your hands, " +
                               "but you can't seem to find anything useful here.");
         }
 
-        if (command.Noun == "desk")
+        else if (command.Noun == "desk")
         {
             Console.WriteLine("You search through the papers and trinkets strewn about the top of the desk, " +
                               "finding nothing. But then, you check the drawers and find a DIAMONDKEY sitting in one of them. " +
@@ -386,7 +402,7 @@ public static class Player
             Map.AddItem("diamondkey", "Bedroom");
         }
 
-        if (command.Noun == "bed")
+        else if (command.Noun == "bed")
         {
             Console.WriteLine(
                 "You pull the pile of sheets off the bed and look under the pillows, but there doesn't seem to be anything interesting here.");
